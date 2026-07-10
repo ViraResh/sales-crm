@@ -1,35 +1,35 @@
 # Modules
 
-## Authentication
+## Core
 
-User authentication and authorization.
+- Authentication
+- Users
+- Roles
+- Permissions
 
----
+## Sales
 
-## Dashboard
+- Leads
+- Clients
+- Deals
 
-Business overview and statistics.
+## Work
 
----
+- Tasks
+- Calendar
+- Activities
 
-## Clients
+## Analytics
 
-Client management module.
+- Dashboard
+- Reports
 
----
+## System
 
-## Deals
+- Notifications
+- Files
+- Settings
 
-Sales pipeline management.
+## AI
 
----
-
-## Users
-
-System users management.
-
----
-
-## Reports
-
-Business analytics and reports.
+- AI Assistant
