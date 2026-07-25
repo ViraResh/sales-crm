@@ -1,9 +1,10 @@
+import { Injectable } from '@nestjs/common';
 import { User } from '@prisma/client';
+import { UserDto } from "../auth/dto/user.dto";
 
-import { AuthResponseDto } from '../auth/dto/auth-response.dto';
-
+@Injectable()
 export class UsersMapper {
-    static toAuthResponse(user: User): AuthResponseDto {
+    toDto(user: User): UserDto {
         return {
             id: user.id,
             email: user.email,
