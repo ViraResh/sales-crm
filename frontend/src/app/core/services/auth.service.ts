@@ -25,6 +25,7 @@ export class AuthService {
       }),
     );
   }
+
   register(data: RegisterRequest): Observable<AuthResponse> {
     return this.http.post<AuthResponse>(`${this.apiUrl}/register`, data).pipe(
       tap((response) => {
@@ -45,6 +46,12 @@ export class AuthService {
 
   hasToken(): boolean {
     return !!this.getToken();
+  }
+
+  fetchCurrentUser(): Observable<User> {
+    return this.http.get<User>(`${this.apiUrl}/me`).pipe(
+      tap((user) => this._currentUser.set(user)),
+    );
   }
 
   private setToken(token: string): void {
