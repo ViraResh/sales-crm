@@ -4,12 +4,29 @@
   align-items: center;
   min-height: 100vh;
   padding: 16px;
+  background: var(--bg);
 }
 
 .auth-card {
   width: 100%;
   max-width: 400px;
-  padding: 24px;
+  padding: 32px;
+  background: var(--surface);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.auth-title {
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--text);
+  margin: 0 0 4px;
+}
+
+.auth-subtitle {
+  font-size: 14px;
+  color: var(--text-muted);
+  margin: 0 0 24px;
 }
 
 .full-width {
@@ -22,7 +39,7 @@
 }
 
 .error-text {
-  color: var(--mat-sys-error, #b3261e);
+  color: var(--accent);
   font-size: 14px;
   margin: 8px 0;
 }
@@ -31,4 +48,5 @@
   text-align: center;
   margin-top: 16px;
   font-size: 14px;
+  color: var(--text-muted);
 }
