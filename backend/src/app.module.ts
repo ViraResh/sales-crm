@@ -8,6 +8,7 @@ import { AuthModule } from './features/auth/auth.module';
 import { UsersModule } from './features/users/users.module';
 import jwtConfig from "./config/jwt.config";
 import { CompaniesModule } from "./features/companies/companies.module";
+import { ContactsModule } from "./features/contacts/contacts.module";
 
 @Module({
     imports: [
@@ -20,6 +21,7 @@ import { CompaniesModule } from "./features/companies/companies.module";
         AuthModule,
         UsersModule,
         CompaniesModule,
+        ContactsModule
     ],
     controllers: [AppController],
     providers: [AppService],

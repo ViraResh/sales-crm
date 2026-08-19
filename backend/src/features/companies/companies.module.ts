@@ -7,5 +7,6 @@ import { CompaniesMapper } from './companies.mapper';
 @Module({
     controllers: [CompaniesController],
     providers: [CompaniesService, CompaniesRepository, CompaniesMapper],
+    exports: [CompaniesRepository],
 })
 export class CompaniesModule {}
