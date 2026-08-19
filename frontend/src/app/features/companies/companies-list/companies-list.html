@@ -1,1 +1,67 @@
-<h1>Companies</h1>
+<div class="page-header">
+  <div>
+    <h2>Companies</h2>
+    <p>Manage your business contacts</p>
+  </div>
+  <button mat-raised-button color="primary" (click)="openCreateDialog()">
+    <mat-icon>add</mat-icon>
+    New company
+  </button>
+</div>
+
+@if (loading()) {
+  <div class="state-center">
+    <mat-spinner diameter="32"></mat-spinner>
+  </div>
+} @else if (error()) {
+  <div class="card state-center error-state">
+    <mat-icon>error_outline</mat-icon>
+    <p>Failed to load companies</p>
+    <span>Something went wrong. Please try again.</span>
+    <button mat-stroked-button (click)="retry()">Retry</button>
+  </div>
+} @else if (companies().length === 0) {
+  <div class="card state-center empty">
+    <mat-icon>domain</mat-icon>
+    <p>No companies yet</p>
+    <span>Create your first company to get started</span>
+  </div>
+} @else {
+  <div class="card">
+    <table>
+      <thead>
+      <tr>
+        <th>Name</th>
+        <th>Industry</th>
+        <th>Website</th>
+        <th>Phone</th>
+        <th>Created</th>
+        <th></th>
+      </tr>
+      </thead>
+      <tbody>
+        @for (c of companies(); track c.id) {
+          <tr>
+            <td class="name">{{ c.name }}</td>
+            <td>{{ c.industry || '—' }}</td>
+            <td>
+              @if (c.website) {
+                <a [href]="c.website" target="_blank">{{ c.website }}</a>
+              } @else { — }
+            </td>
+            <td>{{ c.phone || '—' }}</td>
+            <td class="muted">{{ c.createdAt | date: 'mediumDate' }}</td>
+            <td class="actions">
+              <button mat-icon-button (click)="openEditDialog(c)" aria-label="Edit">
+                <mat-icon>edit</mat-icon>
+              </button>
+              <button mat-icon-button (click)="confirmDelete(c)" aria-label="Delete">
+                <mat-icon>delete</mat-icon>
+              </button>
+            </td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+}
