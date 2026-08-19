@@ -1,0 +1,28 @@
+<div class="layout">
+  <header class="topbar">
+    <div class="brand">
+      <h1>BusinessHub</h1>
+    </div>
+
+    <button class="avatar" [matMenuTriggerFor]="menu">
+      {{ initials() }}
+    </button>
+
+    <mat-menu #menu="matMenu">
+      @if (user()) {
+        <div class="menu-user">
+          <div class="menu-name">{{ user()!.firstName }} {{ user()!.lastName }}</div>
+          <div class="menu-email">{{ user()!.email }}</div>
+        </div>
+      }
+      <button mat-menu-item (click)="logout()">
+        <mat-icon>logout</mat-icon>
+        <span>Sign out</span>
+      </button>
+    </mat-menu>
+  </header>
+
+  <main class="content">
+    <router-outlet></router-outlet>
+  </main>
+</div>
